@@ -1,1 +1,3 @@
-console.log('Hello World!');
+import run from './validator.js';
+
+run();
