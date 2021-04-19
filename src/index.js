@@ -1,3 +1,3 @@
-import run from './validator.js';
+import run from './state';
 
 run();
