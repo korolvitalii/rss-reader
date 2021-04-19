@@ -1,1 +1,3 @@
+[![hexlet-check](https://github.com/korolvitalii/frontend-project-lvl3_RSS_Reader/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/korolvitalii/frontend-project-lvl3_RSS_Reader/actions/workflows/hexlet-check.yml)
+[![NodeCI](https://github.com/korolvitalii/frontend-project-lvl3_RSS_Reader/actions/workflows/superlinter.yml/badge.svg)](https://github.com/korolvitalii/frontend-project-lvl3_RSS_Reader/actions/workflows/superlinter.yml)
 https://frontend-project-lvl3-korolvitalii.vercel.app/
