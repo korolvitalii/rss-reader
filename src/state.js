@@ -5,6 +5,17 @@ import validator from './validator.js';
 import config from './config.js';
 import parser from './parser';
 
+const renderErrors = (elements, errors) => {
+  Object.entries(elements).forEach(([name, element]) => {
+    const error = errors[name];
+    if (!error) {
+      element.classList.remove('is-invalid');
+    } else {
+      element.classList.add('is-invalid');
+    }
+  });
+};
+
 const errorMessages = {
   network: {
     error: 'Network Problems. Try again.',
@@ -14,7 +25,6 @@ const errorMessages = {
 const updateValidationState = (watchedState) => {
   const errors = validator(watchedState.form.fields);
   watchedState.form.valid = _.isEqual(errors, {});
-  console.log( watchedState.form.valid);
   watchedState.form.errors = errors;
 };
 
@@ -29,20 +39,23 @@ export default () => {
       valid: false,
       errors: {},
     },
+    feeds: [],
+    posts: [],
   };
   const form = document.querySelector('.rss-form');
   const fieldElements = {
     website: document.querySelector('.form-control.form-control-lg.w-100'),
   };
-  const submitButton = form.querySelector('[type="submit"]');
 
   const watchedState = onChange(state, (path, value) => {
+    console.log(`PATH === ${path}`);
+    console.log(`VALUE === ${value}`);
     switch (path) {
-      case 'form.valid':
-        submitButton.disabled = !value;
+      case 'form.fields.website':
+      // GET DATA AND RENDER
         break;
       case 'form.errors':
-        // renderErrors(fieldElements, value);
+        renderErrors(fieldElements, value);
         break;
       default:
         break;
@@ -52,26 +65,17 @@ export default () => {
   Object.entries(fieldElements).forEach(([name, element]) => {
     element.addEventListener('input', (e) => {
       watchedState.form.fields[name] = e.target.value;
-      updateValidationState(watchedState);
     });
   });
-  form.addEventListener('submit', async (e) => {
+
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    watchedState.form.processState = 'sending';
-    try {
-    //   await axios.post(routes.usersPath(), watchedState.form.fields);
-      watchedState.form.processState = 'finished';
-    } catch (err) {
-      // В реальных приложениях также требуется корректно обрабатывать сетевые ошибки
-      watchedState.form.processError = errorMessages.network.error;
-      watchedState.form.processState = 'failed';
-      // здесь это опущено в целях упрощения приложения
-      throw err;
-    }
+    updateValidationState(watchedState);
   });
   const getData = axios.get(`${config.proxy}https://habr.com/ru/rss/all/all/?fl=ru`)
     .then((response) => {
       const parsedData = parser(response.data.contents);
+      // parsedData.title.forEach((title) => console.log(title.textContent));
       console.log(parsedData);
     })
     .catch((error) => {

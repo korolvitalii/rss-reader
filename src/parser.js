@@ -4,7 +4,17 @@ const parseRSS = (data) => {
   if (xmlDocument.querySelector('parsererror')) {
     throw new Error('no-parse');
   }
-  return xmlDocument;
+  const channel = xmlDocument.querySelector('channel');
+  const items = [...channel.querySelectorAll('item')].map(console.log);
+
+  // console.log(items);
+  // return {
+  //   feed: {
+  //     title: xmlDocument.querySelector('title'),
+  //     description: xmlDocument.querySelector('description'),
+  //   },
+  // };
+  return items;
 };
 
 export default parseRSS;
