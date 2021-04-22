@@ -22,14 +22,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\\.(js|jsx)$/,
-        loader: 'babel-loader',
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
-        type: 'asset',
-      },
-      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
