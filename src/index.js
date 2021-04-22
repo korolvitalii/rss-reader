@@ -1,4 +1,4 @@
-import run from './state';
+import run from './applitation';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
