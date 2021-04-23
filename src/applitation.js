@@ -4,7 +4,7 @@ import axios from 'axios';
 import validator from './validator.js';
 import config from './config.js';
 import parser from './parser';
-import { renderErrors } from './view';
+import { renderErrors, renderFeed, renderPosts } from './view';
 
 const errorMessages = {
   network: {
@@ -29,25 +29,27 @@ export default () => {
       valid: false,
       errors: {},
     },
-    feeds: [],
-    posts: [],
+    feeds: '',
+    posts: '',
   };
   const form = document.querySelector('.rss-form');
   const fieldElements = {
     website: document.querySelector('.form-control.form-control-lg.w-100'),
+  };
+  const formElements = {
     feedback: document.querySelector('.feedback'),
     feeds: document.querySelector('.feeds'),
     posts: document.querySelector('.posts'),
   };
-  console.log(fieldElements);
+
   const watchedState = onChange(state, (path, value) => {
-    console.log(path);
-    if (path === 'feed') {
-      // renderFeed();
-    } else if (path === 'post') {
-      // renderPost();
+    // console.log(path);
+    if (path === 'feeds') {
+      renderFeed(state, formElements);
+    } else if (path === 'posts') {
+      renderPosts(state, formElements);
     } else if (path === 'form.errors') {
-      renderErrors(fieldElements, value);
+      renderErrors(fieldElements, formElements, value);
     } else {
       // renderForm();
     }
@@ -65,8 +67,11 @@ export default () => {
     .then(() => {
       watchedState.form.processState = 'finished';
     });
-  fieldElements.website.addEventListener('input', (e) => {
-    watchedState.form.fields.website = e.target.value;
+
+  Object.entries(fieldElements).forEach(([name, element]) => {
+    element.addEventListener('input', (e) => {
+      watchedState.form.fields[name] = e.target.value;
+    });
   });
 
   form.addEventListener('submit', (e) => {
@@ -80,7 +85,7 @@ export default () => {
       watchedState.form.processError = errorMessages.network.error;
       watchedState.form.processState = 'failed';
     }
-    console.log(state);
+    // console.log(state);
   });
-  console.log(state);
+  // console.log(state);
 };
