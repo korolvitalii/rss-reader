@@ -11,12 +11,10 @@ const parser = (data) => {
   const items = [...channel.querySelectorAll('item')].map((el) => {
     const title = el.querySelector('title');
     const link = el.querySelector('link');
-    // const description = el.querySelector('description');
     return {
       id: generateFeedId,
       title: title.textContent,
       link: link.textContent,
-      // desc: description.textContent,
     };
   });
   return {

@@ -14,6 +14,7 @@ const errorMessages = {
 
 const updateValidationState = (watchedState) => {
   const errors = validator(watchedState.form.fields);
+  console.log(errors);
   watchedState.form.valid = _.isEqual(errors, {});
   watchedState.form.errors = errors;
 };
@@ -24,7 +25,7 @@ export default () => {
       processState: 'filling',
       processError: null,
       fields: {
-        website: '',
+        input: '',
       },
       valid: false,
       errors: {},
@@ -33,23 +34,22 @@ export default () => {
     posts: '',
   };
   const form = document.querySelector('.rss-form');
-  const fieldElements = {
-    website: document.querySelector('.form-control.form-control-lg.w-100'),
-  };
-  const formElements = {
+
+  const elements = {
+    input: document.querySelector('.form-control.form-control-lg.w-100'),
     feedback: document.querySelector('.feedback'),
     feeds: document.querySelector('.feeds'),
     posts: document.querySelector('.posts'),
+    button: document.querySelector('.btn-primary'),
   };
 
   const watchedState = onChange(state, (path, value) => {
-    // console.log(path);
     if (path === 'feeds') {
-      renderFeed(state, formElements);
+      renderFeed(state, elements);
     } else if (path === 'posts') {
-      renderPosts(state, formElements);
+      renderPosts(state, elements);
     } else if (path === 'form.errors') {
-      renderErrors(fieldElements, formElements, value);
+      renderErrors(elements, value);
     } else {
       // renderForm();
     }
@@ -68,10 +68,8 @@ export default () => {
       watchedState.form.processState = 'finished';
     });
 
-  Object.entries(fieldElements).forEach(([name, element]) => {
-    element.addEventListener('input', (e) => {
-      watchedState.form.fields[name] = e.target.value;
-    });
+  elements.input.addEventListener('input', (e) => {
+    watchedState.form.fields.input = e.target.value;
   });
 
   form.addEventListener('submit', (e) => {
@@ -79,13 +77,13 @@ export default () => {
     watchedState.form.processState = 'sending';
     updateValidationState(watchedState);
     try {
-      loadFeed(watchedState.form.fields.website);
+      loadFeed(watchedState.form.fields.input);
       watchedState.form.processState = 'finished';
     } catch (err) {
       watchedState.form.processError = errorMessages.network.error;
       watchedState.form.processState = 'failed';
     }
-    // console.log(state);
+    console.log(state);
   });
-  // console.log(state);
+  console.log(state);
 };
