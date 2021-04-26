@@ -4,7 +4,9 @@ import axios from 'axios';
 import validator from './validator.js';
 import config from './config.js';
 import parser from './parser';
-import { renderErrors, renderFeed, renderPosts, renderForm } from './view';
+import {
+  renderErrors, renderFeed, renderPosts, renderForm,
+} from './view';
 
 const errorMessages = {
   network: {

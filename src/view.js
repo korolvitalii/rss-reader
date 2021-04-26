@@ -20,21 +20,24 @@ const renderForm = (state, elements) => {
 };
 
 const renderFeed = (state, formElements) => {
-  formElements.url.value = '';
   const { feedsElement } = formElements;
-  const h2 = document.createElement('h2');
+  feedsElement.innerHTML = '';
+  formElements.url.value = '';
   const ul = document.createElement('ul');
-  const li = document.createElement('li');
-  const p = document.createElement('p');
-  const h3 = document.createElement('h3');
+  const h2 = document.createElement('h2');
   h2.innerHTML = 'Feeds';
-  p.innerHTML = state.feeds.title;
-  h3.innerHTML = state.feeds.description;
-  ul.classList.add('list-group', 'mb-5');
-  li.classList.add('list-group-item');
-  li.append(h3);
-  li.append(p);
-  ul.append(li);
+  state.feeds.forEach(({ title, description }) => {
+    const li = document.createElement('li');
+    const p = document.createElement('p');
+    const h3 = document.createElement('h3');
+    p.innerHTML = title;
+    h3.innerHTML = description;
+    ul.classList.add('list-group', 'mb-5');
+    li.classList.add('list-group-item');
+    li.append(h3);
+    li.append(p);
+    ul.append(li);
+  });
   feedsElement.append(h2);
   feedsElement.append(ul);
 };
@@ -42,14 +45,13 @@ const renderFeed = (state, formElements) => {
 const renderPosts = (state, formElements) => {
   console.log(state);
   const { postsElement } = formElements;
-  postsElement.textContent = '';
+  postsElement.innerHTML = '';
   const h2 = document.createElement('h2');
   const ul = document.createElement('ul');
   ul.classList.add('list-group');
   h2.innerHTML = 'Posts';
   const { posts } = state;
-  posts.forEach(({ title, link, description }, index) => {
-    // console.log(description);
+  posts.forEach(({ title, link }, index) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
     const button = document.createElement('button');
