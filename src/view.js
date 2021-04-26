@@ -1,19 +1,27 @@
 const renderErrors = (elements, errors) => {
-  const { input, feedback } = elements;
-  const error = errors.input;
+  const { url, feedback } = elements;
+  const error = errors.url;
   if (error) {
     feedback.textContent = error.message;
     feedback.classList.add('text-danger');
-    input.classList.add('is-invalid');
+    url.classList.add('is-invalid');
   }
   if (!error) {
-    input.classList.remove('is-invalid');
+    url.classList.remove('is-invalid');
     feedback.textContent = '';
     feedback.classList.remove('text-danger');
   }
 };
 
+const renderForm = (state, elements) => {
+  const { feedback } = elements;
+  feedback.textContent = 'RSS already download';
+  feedback.classList.add('text-success');
+};
+
 const renderFeed = (state, formElements) => {
+  formElements.url.value = '';
+  const { feedsElement } = formElements;
   const h2 = document.createElement('h2');
   const ul = document.createElement('ul');
   const li = document.createElement('li');
@@ -27,16 +35,21 @@ const renderFeed = (state, formElements) => {
   li.append(h3);
   li.append(p);
   ul.append(li);
-  formElements.feeds.append(h2);
-  formElements.feeds.append(ul);
+  feedsElement.append(h2);
+  feedsElement.append(ul);
 };
 
 const renderPosts = (state, formElements) => {
+  console.log(state);
+  const { postsElement } = formElements;
+  postsElement.textContent = '';
   const h2 = document.createElement('h2');
   const ul = document.createElement('ul');
   ul.classList.add('list-group');
   h2.innerHTML = 'Posts';
-  state.posts.map(({ title, link, description }, index) => {
+  const { posts } = state;
+  posts.forEach(({ title, link, description }, index) => {
+    // console.log(description);
     const li = document.createElement('li');
     const a = document.createElement('a');
     const button = document.createElement('button');
@@ -49,7 +62,7 @@ const renderPosts = (state, formElements) => {
     a.innerHTML = title;
     button.setAttribute('type', 'button');
     button.classList.add('btn', 'btn-primary', 'btn-sm');
-    button.setAttribute('data-id', `${index}`)
+    button.setAttribute('data-id', `${index}`);
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#modal');
     button.innerHTML = 'See';
@@ -57,12 +70,10 @@ const renderPosts = (state, formElements) => {
     li.append(button);
     ul.append(li);
   });
-  formElements.posts.append(h2);
-  formElements.posts.append(ul);
+  postsElement.append(h2);
+  postsElement.append(ul);
 };
 
-const renderForm = () => {};
-
 export {
-  renderErrors, renderFeed, renderPosts, renderForm,
+  renderFeed, renderPosts, renderErrors, renderForm,
 };

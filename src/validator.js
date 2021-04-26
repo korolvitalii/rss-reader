@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import * as yup from 'yup';
 
-const schema = yup.object().shape({
-  input: yup.string().url(),
-});
-
 export default (fields) => {
+  const schema = yup.object().shape({
+    url: yup.string().url(),
+    // .notOneOf(feeds.map((f) => f.id)),
+  });
   try {
     schema.validateSync(fields, { abortEarly: false });
     return {};

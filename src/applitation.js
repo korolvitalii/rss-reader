@@ -4,7 +4,7 @@ import axios from 'axios';
 import validator from './validator.js';
 import config from './config.js';
 import parser from './parser';
-import { renderErrors, renderFeed, renderPosts } from './view';
+import { renderErrors, renderFeed, renderPosts, renderForm } from './view';
 
 const errorMessages = {
   network: {
@@ -12,34 +12,34 @@ const errorMessages = {
   },
 };
 
-const updateValidationState = (watchedState) => {
-  const errors = validator(watchedState.form.fields);
-  console.log(errors);
-  watchedState.form.valid = _.isEqual(errors, {});
-  watchedState.form.errors = errors;
-};
-
 export default () => {
   const state = {
     form: {
       processState: 'filling',
-      processError: null,
+      processError: [],
       fields: {
-        input: '',
+        url: '',
       },
       valid: false,
-      errors: {},
+      errors: [],
     },
-    feeds: '',
-    posts: '',
+    feeds: [],
+    posts: [],
   };
+
+  const updateValidationState = (watchedState) => {
+    const errors = validator(watchedState.form.fields);
+    watchedState.form.valid = _.isEqual(errors, {});
+    watchedState.form.errors = errors;
+  };
+
   const form = document.querySelector('.rss-form');
 
   const elements = {
-    input: document.querySelector('.form-control.form-control-lg.w-100'),
+    url: document.querySelector('.form-control.form-control-lg.w-100'),
     feedback: document.querySelector('.feedback'),
-    feeds: document.querySelector('.feeds'),
-    posts: document.querySelector('.posts'),
+    feedsElement: document.querySelector('.feeds'),
+    postsElement: document.querySelector('.posts'),
     button: document.querySelector('.btn-primary'),
   };
 
@@ -50,16 +50,23 @@ export default () => {
       renderPosts(state, elements);
     } else if (path === 'form.errors') {
       renderErrors(elements, value);
-    } else {
-      // renderForm();
+    } else if (path === 'form.processState') {
+      if (state.form.processState === 'checking') {
+        updateValidationState(watchedState);
+      }
+      if (state.form.processState === 'finished') {
+        if (state.form.valid === true) {
+          renderForm(state, elements);
+        }
+      }
     }
   });
 
   const loadFeed = (path) => axios.get(`${config.proxy}${path}`)
     .then((response) => {
       const feedAndPost = parser(response.data.contents);
-      watchedState.feeds = feedAndPost.feed;
-      watchedState.posts = feedAndPost.items;
+      watchedState.feeds = [...state.feeds, feedAndPost.feed];
+      watchedState.posts = [...state.posts, ...feedAndPost.items];
     })
     .catch((error) => {
       watchedState.form.processError = error;
@@ -68,22 +75,19 @@ export default () => {
       watchedState.form.processState = 'finished';
     });
 
-  elements.input.addEventListener('input', (e) => {
-    watchedState.form.fields.input = e.target.value;
+  elements.url.addEventListener('input', (e) => {
+    watchedState.form.fields.url = e.target.value;
   });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    watchedState.form.processState = 'sending';
-    updateValidationState(watchedState);
+    watchedState.form.processState = 'checking';
     try {
-      loadFeed(watchedState.form.fields.input);
-      watchedState.form.processState = 'finished';
+      loadFeed(watchedState.form.fields.url);
+      watchedState.form.processState = 'sending';
     } catch (err) {
       watchedState.form.processError = errorMessages.network.error;
       watchedState.form.processState = 'failed';
     }
-    console.log(state);
   });
-  console.log(state);
 };
