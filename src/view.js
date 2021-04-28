@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 const renderErrors = (elements, errors) => {
   const { url, feedback } = elements;
   const error = errors.url;
@@ -15,7 +17,7 @@ const renderErrors = (elements, errors) => {
 
 const renderForm = (state, elements) => {
   const { feedback } = elements;
-  feedback.textContent = 'RSS already download';
+  feedback.textContent = i18next.t('success');
   feedback.classList.add('text-success');
 };
 
@@ -25,7 +27,7 @@ const renderFeed = (state, formElements) => {
   formElements.url.value = '';
   const ul = document.createElement('ul');
   const h2 = document.createElement('h2');
-  h2.innerHTML = 'Feeds';
+  h2.innerHTML = i18next.t('feedHeader');
   state.feeds.forEach(({ title, description }) => {
     const li = document.createElement('li');
     const p = document.createElement('p');
@@ -49,7 +51,7 @@ const renderPosts = (state, formElements) => {
   const h2 = document.createElement('h2');
   const ul = document.createElement('ul');
   ul.classList.add('list-group');
-  h2.innerHTML = 'Posts';
+  h2.innerHTML = i18next.t('postHeader');
   const { posts } = state;
   posts.forEach(({ title, link }, index) => {
     const li = document.createElement('li');

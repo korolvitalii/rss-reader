@@ -23,17 +23,17 @@ export default () => {
       processError: [],
       fields: {
         url: '',
+        feedsUrl: [],
       },
       valid: false,
       errors: [],
     },
     feeds: [],
     posts: [],
-    feedsUrl: [],
   };
 
   const updateValidationState = (watchedState) => {
-    const errors = validator(watchedState);
+    const errors = validator(watchedState.form.fields);
     watchedState.form.valid = _.isEqual(errors, {});
     watchedState.form.errors = errors;
   };
@@ -70,7 +70,7 @@ export default () => {
       feedAndPost.items.id = generateId;
       watchedState.feeds = [...state.feeds, feedAndPost.feed];
       watchedState.posts = [...state.posts, ...feedAndPost.items];
-      watchedState.feedsUrl = [...state.feedsUrl, path];
+      watchedState.form.fields.feedsUrl.push(path);
     })
     .catch((error) => {
       watchedState.form.processError = error;
