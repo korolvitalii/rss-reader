@@ -5,7 +5,7 @@ import i18next from 'i18next';
 export default (fields) => {
   const schema = yup.object().shape({
     url: yup
-      // .string()
+      .string()
       .url(i18next.t('badUrl'))
       .notOneOf([fields.feedsUrl.map((url) => url)], i18next.t('notOneOf'))
       .required(),

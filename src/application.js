@@ -62,14 +62,24 @@ export default () => {
     }
   });
 
+  const setId = (data, id) => {
+    const { feed, items } = data;
+    feed.id = id;
+    items.forEach((item) => {
+      item.id = id;
+    });
+    return {
+      feed,
+      items,
+    };
+  };
+
   const loadFeed = (path) => axios.get(`${config.proxy}${path}`)
     .then((response) => {
       const feedAndPost = parser(response.data.contents);
-      const generateId = _.uniqueId();
-      feedAndPost.feed.id = generateId;
-      feedAndPost.items.id = generateId;
-      watchedState.feeds = [...state.feeds, feedAndPost.feed];
-      watchedState.posts = [...state.posts, ...feedAndPost.items];
+      const marked = setId(feedAndPost, path);
+      watchedState.feeds = [...state.feeds, marked.feed];
+      watchedState.posts = [...state.posts, ...marked.items];
       watchedState.form.fields.feedsUrl.push(path);
     })
     .catch((error) => {
@@ -97,6 +107,17 @@ export default () => {
       watchedState.form.processState = 'failed';
     }
   };
+  const refreshFeeds = (path) => axios.get(`${config.proxy}${path}`)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+  const refreshPosts = () => {
+    const promise = state.form.fields.feedsUrl.map((url) => refreshFeeds(url));
+    console.log(promise);
+  };
 
   const init = () => {
     i18next.init({
@@ -109,4 +130,5 @@ export default () => {
     });
   };
   init();
+  setTimeout(refreshPosts, 1000);
 };

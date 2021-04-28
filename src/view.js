@@ -45,7 +45,6 @@ const renderFeed = (state, formElements) => {
 };
 
 const renderPosts = (state, formElements) => {
-  console.log(state);
   const { postsElement } = formElements;
   postsElement.innerHTML = '';
   const h2 = document.createElement('h2');
