@@ -1,4 +1,5 @@
 import i18next from 'i18next';
+import _ from 'lodash';
 
 const renderErrors = (elements, errors) => {
   const { url, feedback } = elements;
@@ -46,12 +47,15 @@ const renderFeed = (state, formElements) => {
 
 const renderPosts = (state, formElements) => {
   const { postsElement } = formElements;
+  const { posts } = state;
+  if (_.isEmpty(posts)) {
+    return;
+  }
   postsElement.innerHTML = '';
   const h2 = document.createElement('h2');
   const ul = document.createElement('ul');
   ul.classList.add('list-group');
   h2.innerHTML = i18next.t('postHeader');
-  const { posts } = state;
   posts.forEach(({ title, link }, index) => {
     const li = document.createElement('li');
     const a = document.createElement('a');

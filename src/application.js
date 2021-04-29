@@ -47,7 +47,6 @@ export default () => {
     form: document.querySelector('.rss-form'),
 
   };
-
   const watchedState = onChange(state, (path, value) => {
     if (path === 'feeds') {
       renderFeed(state, elements);
@@ -65,9 +64,11 @@ export default () => {
   const setId = (data, id) => {
     const { feed, items } = data;
     feed.id = id;
-    items.forEach((item) => {
-      item.id = id;
-    });
+    items.forEach((item) => ({
+      title: item.title,
+      link: item.link,
+      id: item.id,
+    }));
     return {
       feed,
       items,
@@ -83,7 +84,8 @@ export default () => {
       watchedState.form.fields.feedsUrl.push(path);
     })
     .catch((error) => {
-      watchedState.form.processError = error;
+      watchedState.form.processError = { url: error };
+      // watchedState.form.processState = 'failed';
     })
     .then(() => {
       watchedState.form.processState = 'finished';
@@ -103,20 +105,32 @@ export default () => {
       loadFeed(watchedState.form.fields.url);
       watchedState.form.processState = 'sending';
     } catch (err) {
-      watchedState.form.processError = errorMessages.network.error;
+      watchedState.form.processError = err;
       watchedState.form.processState = 'failed';
     }
   };
   const refreshFeeds = (path) => axios.get(`${config.proxy}${path}`)
     .then((response) => {
-      console.log(response);
+      if (_.isEmpty(response.data)) {
+        return [];
+      }
+      const refreshFeedsAndPosts = parser(response.data.contents);
+      const marked = setId(refreshFeedsAndPosts, path);
+      const filteredPosts = state.posts.filter(({ id }) => id === path);
+      const diff = _.differenceWith(filteredPosts, marked.items, _.isEqual);
+      return diff;
     })
     .catch((e) => {
       console.log(e);
+      return [];
     });
   const refreshPosts = () => {
-    const promise = state.form.fields.feedsUrl.map((url) => refreshFeeds(url));
-    console.log(promise);
+    const promise = state.feeds.map((feed) => refreshFeeds(feed.id));
+    Promise.all(promise).then((newPost) => {
+      const flattedNewPost = _.flatten(newPost);
+      watchedState.posts = [...state.posts, ...flattedNewPost];
+      setTimeout(refreshPosts, 5000);
+    });
   };
 
   const init = () => {
@@ -130,5 +144,5 @@ export default () => {
     });
   };
   init();
-  setTimeout(refreshPosts, 1000);
+  setTimeout(refreshPosts, 5000);
 };
