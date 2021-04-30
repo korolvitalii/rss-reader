@@ -135,7 +135,7 @@ export default () => {
 
   const init = () => {
     i18next.init({
-      lng: 'en',
+      lng: 'ru',
       debug: false,
       resources: locale,
     }, () => {

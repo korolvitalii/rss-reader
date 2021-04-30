@@ -8,7 +8,7 @@ export default (fields) => {
       .string()
       .url(i18next.t('badUrl'))
       .notOneOf([fields.feedsUrl.map((url) => url)], i18next.t('notOneOf'))
-      .required(),
+      .required(i18next.t('empty')),
   });
   try {
     schema.validateSync(fields, { abortEarly: false });
