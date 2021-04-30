@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?> <rss version="2.0" xml:base="http://www.nasa.gov/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/"> <channel> <title>NASA Breaking News</title>
+ <description>A RSS news feed containing the latest NASA news articles and press releases.</description>
+ <link>http://www.nasa.gov/</link>
+ <atom:link rel="self" href="http://www.nasa.gov/rss/dyn/breaking_news.rss" />
+ <language>en-us</language>
+ <managingEditor>jim.wilson@nasa.gov</managingEditor>
+ <webMaster>brian.dunbar@nasa.gov</webMaster>
+ <docs>http://blogs.harvard.edu/tech/rss</docs>
+ <item> <title>NASA Hosts Virtual Event to Leverage STEM, Small Business Opportunities with Minority Colleges</title>
+ <link>http://www.nasa.gov/press-release/nasa-hosts-virtual-event-to-leverage-stem-small-business-opportunities-with-minority</link>
+ <description>Media are invited to NASA’s 15th annual Historically Black Colleges and Universities (HBCU)/Minority Serving Institutions (MSI) Technology Infusion Road Tour, a virtual event Nov. 18 and 19.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/nasa-logo-web-rgb.jpg?itok=36eU9WU7" length="189751" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-hosts-virtual-event-to-leverage-stem-small-business-opportunities-with-minority</guid>
+ <pubDate>Tue, 17 Nov 2020 17:19 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466290</dc:identifier>
+</item>
+ <item> <title>NASA Highlights Science, New Airlock on Next Space Station Resupply Mission</title>
+ <link>http://www.nasa.gov/press-release/nasa-highlights-science-new-airlock-on-next-space-station-resupply-mission</link>
+ <description>NASA will host a media teleconference at 1 p.m. EST Friday, Nov. 20, to discuss science investigations and a new privately funded airlock launching on SpaceX’s 21st commercial cargo resupply mission for the agency to the International Space Station.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/iss062e120658_large.jpg?itok=kl7S6q0k" length="350849" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-highlights-science-new-airlock-on-next-space-station-resupply-mission</guid>
+ <pubDate>Tue, 17 Nov 2020 10:36 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466270</dc:identifier>
+</item>
+ <item> <title>NASA’s SpaceX Crew-1 Astronauts Arrive at Space Station, NASA Leaders and Crew to Discuss Mission</title>
+ <link>http://www.nasa.gov/press-release/nasa-s-spacex-crew-1-astronauts-arrive-at-space-station-nasa-leaders-and-crew-to</link>
+ <description>The SpaceX Crew Dragon Resilience successfully docked to the International Space Station at 11 p.m. EST Monday, transporting NASA astronauts Michael Hopkins, Victor Glover, Shannon Walker, and Japan Aerospace Exploration Agency (JAXA) astronaut Soichi Noguchi.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/crew-1_docking_in_cabin.jpg?itok=__Ljra1Q" length="1094398" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-s-spacex-crew-1-astronauts-arrive-at-space-station-nasa-leaders-and-crew-to</guid>
+ <pubDate>Mon, 16 Nov 2020 22:44 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466256</dc:identifier>
+</item>
+ <item> <title>NASA Receives 10th Consecutive Clean Financial Audit Opinion</title>
+ <link>http://www.nasa.gov/press-release/nasa-receives-10th-consecutive-clean-financial-audit-opinion</link>
+ <description>NASA has received an unmodified audit opinion on its Fiscal Year 2020 financial statements, marking the 10th consecutive &quot;clean&quot; opinion from an external auditor – the highest opinion that may be received.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/nasa-logo-web-rgb.jpg?itok=36eU9WU7" length="189751" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-receives-10th-consecutive-clean-financial-audit-opinion</guid>
+ <pubDate>Mon, 16 Nov 2020 22:20 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466246</dc:identifier>
+</item>
+ <item> <title>NASA’s SpaceX Crew-1 Astronauts Headed to International Space Station</title>
+ <link>http://www.nasa.gov/press-release/nasa-s-spacex-crew-1-astronauts-headed-to-international-space-station</link>
+ <description>An international crew of astronauts is en route to the International Space Station following a successful launch on the first NASA-certified commercial human spacecraft system in history.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/50606725323_6b93290435_k.jpg?itok=bBXqCLkS" length="462643" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-s-spacex-crew-1-astronauts-headed-to-international-space-station</guid>
+ <pubDate>Sun, 15 Nov 2020 20:56 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466225</dc:identifier>
+</item>
+ <item> <title>NASA Updates TV Coverage for First Crew Rotation Flight on US Commercial Spacecraft</title>
+ <link>http://www.nasa.gov/press-release/nasa-updates-tv-coverage-for-first-crew-rotation-flight-on-us-commercial-spacecraft</link>
+ <description>NASA and SpaceX are now targeting 7:27 p.m. EST Sunday, Nov. 15, for liftoff of the agency’s SpaceX Crew-1 mission from Launch Complex 39A at NASA’s Kennedy Space Center in Florida with astronauts to the International Space Station.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/50594074423_d5f6ad2d8c_k.jpg?itok=RSlx088x" length="842922" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-updates-tv-coverage-for-first-crew-rotation-flight-on-us-commercial-spacecraft</guid>
+ <pubDate>Fri, 13 Nov 2020 19:22 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466223</dc:identifier>
+</item>
+ <item> <title>NASA TV to Air Sentinel-6 Michael Freilich Launch, Prelaunch Activities</title>
+ <link>http://www.nasa.gov/press-release/nasa-tv-to-air-sentinel-6-michael-freilich-launch-prelaunch-activities</link>
+ <description>NASA is targeting 12:17 p.m. EST (9:17 a.m. PST) Saturday, Nov. 21, for the launch of the Sentinel-6 Michael Freilich satellite, the first of two identical satellites to head into Earth orbit five years apart to continue sea level observations for at least the next decade.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/sentinel-6-art-1041.jpg?itok=I3kISrj0" length="151199" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-tv-to-air-sentinel-6-michael-freilich-launch-prelaunch-activities</guid>
+ <pubDate>Fri, 13 Nov 2020 10:49 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466187</dc:identifier>
+</item>
+ <item> <title>NASA TV Coverage Set for Russian Spacewalk</title>
+ <link>http://www.nasa.gov/press-release/nasa-tv-coverage-set-for-russian-spacewalk</link>
+ <description>Two Russian cosmonauts are scheduled to go outside the International Space Station Wednesday, Nov. 18, to conduct a spacewalk that will initiate preparations for the arrival of a new Russian research module.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/30229151168_2c30400041_k.jpg?itok=cu_9BMwT" length="747790" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-tv-coverage-set-for-russian-spacewalk</guid>
+ <pubDate>Thu, 12 Nov 2020 17:51 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466178</dc:identifier>
+</item>
+ <item> <title>NASA Science to Host Community Town Hall Meeting</title>
+ <link>http://www.nasa.gov/press-release/nasa-science-to-host-community-town-hall-meeting</link>
+ <description>NASA’s Science Mission Directorate will hold a community town hall meeting with Associate Administrator for Science Thomas Zurbuchen and his leadership team at 3 p.m. EST Tuesday, Nov. 17, to discuss updates to NASA’s science programs, share the current status of activities, and roll out the agency’s 2021 NASA Science Planning Guide.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/nasa-logo-web-rgb_0.jpg?itok=mrBnB_c9" length="189751" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-science-to-host-community-town-hall-meeting</guid>
+ <pubDate>Tue, 10 Nov 2020 17:05 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466133</dc:identifier>
+</item>
+ <item> <title>Independent Review Indicates NASA Prepared for Mars Sample Return Campaign</title>
+ <link>http://www.nasa.gov/press-release/independent-review-indicates-nasa-prepared-for-mars-sample-return-campaign</link>
+ <description>NASA released an independent review report Tuesday indicating the agency is now ready to undertake its Mars Sample Return (MSR) campaign to bring pristine samples from Mars to Earth for scientific study.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/pia23496_-_mav_launch.jpg?itok=QeWM_EhP" length="3165522" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/independent-review-indicates-nasa-prepared-for-mars-sample-return-campaign</guid>
+ <pubDate>Tue, 10 Nov 2020 10:03 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466106</dc:identifier>
+</item>
+</channel>
+</rss>

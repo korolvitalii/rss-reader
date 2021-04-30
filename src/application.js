@@ -10,11 +10,11 @@ import {
   renderErrors, renderFeed, renderPosts, renderForm,
 } from './view';
 
-const errorMessages = {
-  network: {
-    error: 'Network Problems. Try again.',
-  },
-};
+// const errorMessages = {
+//   network: {
+//     error: 'Network Problems. Try again.',
+//   },
+// };
 
 export default () => {
   const state = {

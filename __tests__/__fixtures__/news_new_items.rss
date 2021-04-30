@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?> <rss version="2.0" xml:base="http://www.nasa.gov/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/"> <channel> <title>NASA Breaking News</title>
+ <description>A RSS news feed containing the latest NASA news articles and press releases.</description>
+ <link>http://www.nasa.gov/</link>
+ <atom:link rel="self" href="http://www.nasa.gov/rss/dyn/breaking_news.rss" />
+ <language>en-us</language>
+ <managingEditor>jim.wilson@nasa.gov</managingEditor>
+ <webMaster>brian.dunbar@nasa.gov</webMaster>
+ <docs>http://blogs.harvard.edu/tech/rss</docs>
+ <item> <title>NASA, US and European Partners Launch Mission to Monitor Global Ocean</title>
+ <link>http://www.nasa.gov/press-release/nasa-us-and-european-partners-launch-mission-to-monitor-global-ocean</link>
+ <description>A joint U.S.-European satellite built to monitor global sea levels lifted off on a SpaceX Falcon 9 rocket from Space Launch Complex 4E at Vandenberg Air Force Base in California Saturday at 9:17 a.m. PST (12:17 p.m. EST).</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/screen_shot_2020-11-21_at_12.17.43_pm_0.png?itok=0ntgd17l" length="1277642" type="image/png" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-us-and-european-partners-launch-mission-to-monitor-global-ocean</guid>
+ <pubDate>Sat, 21 Nov 2020 12:55 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466378</dc:identifier>
+</item>
+ <item> <title>NASA Hosts Virtual Event to Leverage STEM, Small Business Opportunities with Minority Colleges</title>
+ <link>http://www.nasa.gov/press-release/nasa-hosts-virtual-event-to-leverage-stem-small-business-opportunities-with-minority</link>
+ <description>Media are invited to NASA’s 15th annual Historically Black Colleges and Universities (HBCU)/Minority Serving Institutions (MSI) Technology Infusion Road Tour, a virtual event Nov. 18 and 19.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/nasa-logo-web-rgb.jpg?itok=36eU9WU7" length="189751" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/press-release/nasa-hosts-virtual-event-to-leverage-stem-small-business-opportunities-with-minority</guid>
+ <pubDate>Tue, 17 Nov 2020 17:19 EST</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/breaking_news.rss">NASA Breaking News</source>
+ <dc:identifier>466290</dc:identifier>
+ </item>
+</channel>
+</rss>
