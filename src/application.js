@@ -10,17 +10,10 @@ import {
   renderErrors, renderFeed, renderPosts, renderForm,
 } from './view';
 
-// const errorMessages = {
-//   network: {
-//     error: 'Network Problems. Try again.',
-//   },
-// };
-
 export default () => {
   const state = {
     form: {
       processState: 'filling',
-      processError: [],
       fields: {
         url: '',
         feedsUrl: [],
@@ -33,7 +26,7 @@ export default () => {
   };
 
   const updateValidationState = (watchedState) => {
-    const errors = validator(watchedState.form.fields);
+    const errors = validator(watchedState.feeds, watchedState.form.fields);
     watchedState.form.valid = _.isEqual(errors, {});
     watchedState.form.errors = errors;
   };
@@ -55,7 +48,7 @@ export default () => {
     } else if (path === 'form.errors') {
       renderErrors(elements, value);
     } if (state.form.processState === 'finished') {
-      if (state.form.valid === true) {
+      if (state.form.valid === true && _.isEmpty(state.form.errors)) {
         renderForm(state, elements);
       }
     }
@@ -78,14 +71,15 @@ export default () => {
   const loadFeed = (path) => axios.get(`${config.proxy}${path}`)
     .then((response) => {
       const feedAndPost = parser(response.data.contents);
+      console.log(feedAndPost);
       const marked = setId(feedAndPost, path);
       watchedState.feeds = [...state.feeds, marked.feed];
       watchedState.posts = [...state.posts, ...marked.items];
       watchedState.form.fields.feedsUrl.push(path);
     })
     .catch((error) => {
-      watchedState.form.processError = { url: error };
-      // watchedState.form.processState = 'failed';
+      watchedState.form.errors = { ...state.form.errors, url: error };
+      watchedState.form.processState = 'failed';
     })
     .then(() => {
       watchedState.form.processState = 'finished';
@@ -105,10 +99,15 @@ export default () => {
       loadFeed(watchedState.form.fields.url);
       watchedState.form.processState = 'sending';
     } catch (err) {
-      watchedState.form.processError = err;
+      watchedState.form.errors = { ...state.form.errors, ...err };
       watchedState.form.processState = 'failed';
     }
   };
+
+  // const modal = (e) => {
+  //   e.preventDefault();
+
+  // };
   const refreshFeeds = (path) => axios.get(`${config.proxy}${path}`)
     .then((response) => {
       if (_.isEmpty(response.data)) {

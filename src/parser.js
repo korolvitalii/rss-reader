@@ -3,8 +3,9 @@
 const parser = (data) => {
   const xmlParser = new DOMParser();
   const xmlDocument = xmlParser.parseFromString(data, 'application/xml');
+  console.log(xmlDocument);
   if (xmlDocument.querySelector('parsererror')) {
-    throw new Error('no-parse');
+    throw new Error('Ресурс не содержит валидный RSS');
   }
   const channel = xmlDocument.querySelector('channel');
   const items = [...channel.querySelectorAll('item')].map((el) => {

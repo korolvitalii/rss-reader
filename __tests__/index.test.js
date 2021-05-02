@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
-// import mockAxios from 'axios';
 import path from 'path';
 import { screen, fireEvent, waitFor } from '@testing-library/dom';
+// import mockAxios from 'axios';
 import appication from '../src/application';
 
 const readFixture = async (fixtureName) => {
@@ -32,9 +32,11 @@ test('invalid rss', async () => {
   expect(document.body.outerHTML).toMatchSnapshot();
 });
 
-test('not contain valid RSS', async () => {
-  fireEvent.input(screen.getByTestId('rss-field'), { target: { value: 'https://habr.com/' } });
-  fireEvent.submit(screen.getByTestId('rss-form'));
-  await waitFor(() => expect(screen.getByText('Ресурс не содержит валидный RSS')));
-  expect(document.body.outerHTML).toMatchSnapshot();
-});
+// test('add rss', async () => {
+//   const rss = await readFixture('breaking_news.rss');
+//   mockAxios.get.mockImplementationOnce(() => Promise.resolve({ data: rss }));
+//   fireEvent.input(screen.getByTestId('rss-field'), { target: { value: 'https://ru.hexlet.io/lessons.rss' } });
+//   fireEvent.submit(screen.getByTestId('rss-form'));
+//   await waitFor(() => expect(screen.getByText('Feeds')));
+//   expect(document.body.outerHTML).toMatchSnapshot();
+// });

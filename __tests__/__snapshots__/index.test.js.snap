@@ -1,5 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`add rss 1`] = `
+"<body class=\\"d-flex flex-column min-vh-100\\"><main class=\\"flex-grow-1\\">
+  <div class=\\"toast\\" role=\\"alert\\" aria-live=\\"assertive\\" aria-atomic=\\"true\\" data-delay=\\"5000\\" style=\\"position: absolute; top: 0; right: 0;\\">
+    <div class=\\"toast-body\\"></div>
+  </div>
+  <section class=\\"jumbotron jumbotron-fluid bg-dark\\">
+    <div class=\\"container-xl\\">
+      <div class=\\"modal fade\\" id=\\"showPostDescription\\" tabindex=\\"-1\\" aria-hidden=\\"true\\" role=\\"dialog\\" aria-labelledby=\\"showPostDescriptionLabel\\">
+        <div class=\\"modal-dialog\\">
+          <div class=\\"modal-content\\">
+            <div class=\\"modal-header\\">
+              <h5 class=\\"modal-title\\" id=\\"showPostDescriptionLabel\\"></h5>
+              <button type=\\"button\\" class=\\"close\\" data-dismiss=\\"modal\\" aria-label=\\"Close\\">
+                <span aria-hidden=\\"true\\">×</span>
+              </button>
+            </div>
+            <div class=\\"modal-body\\">
+              <p class=\\"post-description\\"></p>
+            </div>
+            <div class=\\"modal-footer\\">
+              <button type=\\"button\\" class=\\"btn btn-secondary btn-close\\" data-dismiss=\\"modal\\">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=\\"row\\">
+        <div class=\\"col-md-10 col-lg-8 mx-auto text-white\\">
+          <h1 class=\\"display-3\\">RSS Reader</h1>
+          <form data-testid=\\"rss-form\\" class=\\"rss-form\\">
+            <div class=\\"form-row\\">
+              <div class=\\"col\\">
+                <input data-testid=\\"rss-field\\" class=\\"form-control form-control-lg w-100 is-valid\\" autofocus=\\"\\" aria-label=\\"RSS\\" required=\\"\\" placeholder=\\"Input RSS link\\">
+              </div>
+              <div class=\\"col-auto\\">
+                <button class=\\"btn btn-primary btn-lg px-sm-5\\" type=\\"submit\\">Add</button>
+              </div>
+            </div>
+          </form>
+          <p class=\\"text-muted my-1\\">Example: https://www.nasa.gov/rss/dyn/breaking_news.rss</p>
+          <div id=\\"form-feedback\\" class=\\"feedback text-success\\">Новый RSS поток был добавлен</div>
+        </div>
+      </div>
+    </div>
+  </section>
+<div class=\\"container-xl\\">
+    <div class=\\"row\\">
+      <div class=\\"col-md-10 col-lg-8 mx-auto feeds\\">
+        <h2>Feeds</h2>
+        <ul class=\\"list-group mb-5\\"><li class=\\"list-group-item\\"><h3>NASA Breaking News</h3><p>A RSS news feed containing the latest NASA news articles and press releases.</p></li></ul></div>
+      </div>
+      <div class=\\"row\\">
+      <div class=\\"col-md-10 col-lg-8 mx-auto posts\\">
+        <h2>Posts</h2>
+        <ul class=\\"list-group mb-5\\"><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA Hosts Virtual Event to Leverage STEM, Small Business Opportunities with Minority Colleges:http://www.nasa.gov/press-release/nasa-hosts-virtual-event-to-leverage-stem-small-business-opportunities-with-minority\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-hosts-virtual-event-to-leverage-stem-small-business-opportunities-with-minority\\">NASA Hosts Virtual Event to Leverage STEM, Small Business Opportunities with Minority Colleges</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA Highlights Science, New Airlock on Next Space Station Resupply Mission:http://www.nasa.gov/press-release/nasa-highlights-science-new-airlock-on-next-space-station-resupply-mission\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-highlights-science-new-airlock-on-next-space-station-resupply-mission\\">NASA Highlights Science, New Airlock on Next Space Station Resupply Mission</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA’s SpaceX Crew-1 Astronauts Arrive at Space Station, NASA Leaders and Crew to Discuss Mission:http://www.nasa.gov/press-release/nasa-s-spacex-crew-1-astronauts-arrive-at-space-station-nasa-leaders-and-crew-to\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-s-spacex-crew-1-astronauts-arrive-at-space-station-nasa-leaders-and-crew-to\\">NASA’s SpaceX Crew-1 Astronauts Arrive at Space Station, NASA Leaders and Crew to Discuss Mission</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA Receives 10th Consecutive Clean Financial Audit Opinion:http://www.nasa.gov/press-release/nasa-receives-10th-consecutive-clean-financial-audit-opinion\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-receives-10th-consecutive-clean-financial-audit-opinion\\">NASA Receives 10th Consecutive Clean Financial Audit Opinion</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA’s SpaceX Crew-1 Astronauts Headed to International Space Station:http://www.nasa.gov/press-release/nasa-s-spacex-crew-1-astronauts-headed-to-international-space-station\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-s-spacex-crew-1-astronauts-headed-to-international-space-station\\">NASA’s SpaceX Crew-1 Astronauts Headed to International Space Station</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA Updates TV Coverage for First Crew Rotation Flight on US Commercial Spacecraft:http://www.nasa.gov/press-release/nasa-updates-tv-coverage-for-first-crew-rotation-flight-on-us-commercial-spacecraft\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-updates-tv-coverage-for-first-crew-rotation-flight-on-us-commercial-spacecraft\\">NASA Updates TV Coverage for First Crew Rotation Flight on US Commercial Spacecraft</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA TV to Air Sentinel-6 Michael Freilich Launch, Prelaunch Activities:http://www.nasa.gov/press-release/nasa-tv-to-air-sentinel-6-michael-freilich-launch-prelaunch-activities\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-tv-to-air-sentinel-6-michael-freilich-launch-prelaunch-activities\\">NASA TV to Air Sentinel-6 Michael Freilich Launch, Prelaunch Activities</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA TV Coverage Set for Russian Spacewalk:http://www.nasa.gov/press-release/nasa-tv-coverage-set-for-russian-spacewalk\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-tv-coverage-set-for-russian-spacewalk\\">NASA TV Coverage Set for Russian Spacewalk</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"NASA Science to Host Community Town Hall Meeting:http://www.nasa.gov/press-release/nasa-science-to-host-community-town-hall-meeting\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/nasa-science-to-host-community-town-hall-meeting\\">NASA Science to Host Community Town Hall Meeting</a>
+      </div>
+    </div></li><li class=\\"list-group-item\\">
+    <div class=\\"row font-weight-bold\\" data-feed-item-id=\\"Independent Review Indicates NASA Prepared for Mars Sample Return Campaign:http://www.nasa.gov/press-release/independent-review-indicates-nasa-prepared-for-mars-sample-return-campaign\\">
+      <div class=\\"col-2\\">
+        <button type=\\"button\\" class=\\"btn btn-outline-info post-preview\\">Preview</button>
+      </div>
+      <div class=\\"col\\">
+        <a target=\\"_blank\\" href=\\"http://www.nasa.gov/press-release/independent-review-indicates-nasa-prepared-for-mars-sample-return-campaign\\">Independent Review Indicates NASA Prepared for Mars Sample Return Campaign</a>
+      </div>
+    </div></li></ul>
+      </div>
+    </div></div></main></body>"
+`;
+
 exports[`init  1`] = `
 "<body><main class=\\"flex-grow-1\\">
     <section class=\\"container-fluid bg-dark p-5\\">
@@ -37,8 +175,6 @@ exports[`init  1`] = `
  
  </body>"
 `;
-
-exports[`init 1`] = `"<body></body>"`;
 
 exports[`invalid rss 1`] = `
 "<body><main class=\\"flex-grow-1\\">
