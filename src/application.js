@@ -40,9 +40,8 @@ export default () => {
     feedsElement: document.querySelector('.feeds'),
     postsElement: document.querySelector('.posts'),
     button: document.querySelector('.btn-primary'),
-    form: document.querySelector('.rss-form'),
-
   };
+  const form = document.querySelector('.rss-form');
   const watchedState = onChange(state, (path, value) => {
     if (path === 'feeds') {
       renderFeed(state, elements);
@@ -136,7 +135,7 @@ export default () => {
       debug: false,
       resources: locale,
     }, () => {
-      elements.form.addEventListener('submit', onSubmit);
+      form.addEventListener('submit', onSubmit);
       elements.url.addEventListener('input', onChangeInput);
     });
   };
