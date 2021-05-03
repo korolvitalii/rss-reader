@@ -56,13 +56,21 @@ const renderPosts = (state, formElements) => {
   const ul = document.createElement('ul');
   ul.classList.add('list-group');
   h2.innerHTML = i18next.t('postHeader');
-  posts.forEach(({ title, link }, index) => {
+  posts.forEach(({
+    title, description, link,
+  }, index) => {
+    const isViewedPost = state.uiState.viewPosts.includes(link);
     const li = document.createElement('li');
     const a = document.createElement('a');
+    const modalElements = {
+      modal: document.querySelector('#modal'),
+      header: document.querySelector('.modal-header'),
+      body: document.querySelector('.modal-body'),
+      a: document.querySelector('.btn.btn-primary.full-article'),
+    };
     const button = document.createElement('button');
     li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start');
     a.setAttribute('href', `${link}`);
-    a.classList.add('font-weight-bold');
     a.setAttribute('data-id', `${index}`);
     a.setAttribute('target', '_blank');
     a.setAttribute('rel', 'noopener noreferrer');
@@ -72,7 +80,21 @@ const renderPosts = (state, formElements) => {
     button.setAttribute('data-id', `${index}`);
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#modal');
-    button.innerHTML = 'See';
+    button.innerHTML = 'Просморт';
+    if (isViewedPost) {
+      a.classList.remove('font-weight-bold');
+      a.classList.add('font-weight-normal');
+    } else {
+      a.classList.add('font-weight-bold');
+    }
+    button.addEventListener('click', () => {
+      // e.preventDefault();
+      state.uiState.viewPosts.push(link);
+      modalElements.header.innerHTML = title;
+      modalElements.body.innerHTML = description;
+      modalElements.a.innerHTML = 'Читать полностью';
+      modalElements.a.href = link;
+    });
     li.append(a);
     li.append(button);
     ul.append(li);

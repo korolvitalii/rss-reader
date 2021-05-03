@@ -23,6 +23,9 @@ export default () => {
     },
     feeds: [],
     posts: [],
+    uiState: {
+      viewPosts: [],
+    },
   };
 
   const updateValidationState = (watchedState) => {
@@ -71,7 +74,6 @@ export default () => {
   const loadFeed = (path) => axios.get(`${config.proxy}${path}`)
     .then((response) => {
       const feedAndPost = parser(response.data.contents);
-      console.log(feedAndPost);
       const marked = setId(feedAndPost, path);
       watchedState.feeds = [...state.feeds, marked.feed];
       watchedState.posts = [...state.posts, ...marked.items];
@@ -104,10 +106,6 @@ export default () => {
     }
   };
 
-  // const modal = (e) => {
-  //   e.preventDefault();
-
-  // };
   const refreshFeeds = (path) => axios.get(`${config.proxy}${path}`)
     .then((response) => {
       if (_.isEmpty(response.data)) {
