@@ -95,6 +95,7 @@ export default (i18next) => {
         watchedState.form.errors = { ...state.form.errors, url: error };
         watchedState.form.processState = 'failed';
       } else {
+        console.log(error);
         error.message = i18next.t('urlNotRss');
         watchedState.form.errors = { ...state.form.errors, url: error };
         watchedState.form.processState = 'failed';
