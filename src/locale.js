@@ -21,6 +21,7 @@ export default {
       feedHeader: 'Feeds',
       postHeader: 'Posts',
       empty: 'Не должно быть пустым',
+      notInternet: 'Ошибка сети',
     },
   },
 };

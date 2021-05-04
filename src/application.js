@@ -81,9 +81,15 @@ export default (i18next) => {
       watchedState.form.fields.feedsUrl.push(path);
     })
     .catch((error) => {
-      error.message = 'Ошибка сети';
-      watchedState.form.errors = { ...state.form.errors, url: error };
-      watchedState.form.processState = 'failed';
+      if (error.isAxiosError) {
+        error.message = i18next.t('notInternet');
+        watchedState.form.errors = { ...state.form.errors, url: error };
+        watchedState.form.processState = 'failed';
+      } else {
+        error.message = i18next.t('urlNotRss');
+        watchedState.form.errors = { ...state.form.errors, url: error };
+        watchedState.form.processState = 'failed';
+      }
     })
     .then(() => {
       watchedState.form.processState = 'finished';
