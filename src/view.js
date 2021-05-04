@@ -6,12 +6,11 @@ const toggleForm = (elements, status) => {
   if (status === 'true') {
     button.disabled = true;
     url.setAttribute('readonly', true);
-    console.log(button);
   } else {
     button.disabled = false;
     url.removeAttribute('readonly');
-    console.log(button);
   }
+  console.log(url);
 };
 
 const renderErrors = (elements, errors) => {

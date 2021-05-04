@@ -55,7 +55,6 @@ export default (i18next) => {
         toggleForm(elements, 'true');
       } if (state.form.processState === 'finished') {
         if (state.form.valid === true && _.isEmpty(state.form.errors)) {
-          console.log('work!!!');
           toggleForm(elements, 'false');
           renderForm(state, elements, i18next);
         }
@@ -89,7 +88,7 @@ export default (i18next) => {
     .catch((error) => {
       if (error.isAxiosError) {
         error.message = i18next.t('notInternet');
-        watchedState.form.errors = { ...state.form.errors, url: error };  
+        watchedState.form.errors = { ...state.form.errors, url: error };
         watchedState.form.processState = 'failed';
       } else {
         console.log(error);
