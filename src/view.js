@@ -1,6 +1,19 @@
 // import i18next from 'i18next';
 import _ from 'lodash';
 
+const toggleForm = (elements, status) => {
+  const { url, button } = elements;
+  console.log('work!!!!');
+  console.loG(status);
+  if (status) {
+    button.disabled = status;
+    url.setAttribute('readonly', status);
+  } else {
+    button.disabled = status;
+    url.removeAttribute('readonly');
+  }
+};
+
 const renderErrors = (elements, errors) => {
   const { url, feedback } = elements;
   const error = errors.url;
@@ -104,5 +117,5 @@ const renderPosts = (state, formElements, i18next) => {
 };
 
 export {
-  renderFeed, renderPosts, renderErrors, renderForm,
+  renderFeed, renderPosts, renderErrors, renderForm, toggleForm,
 };

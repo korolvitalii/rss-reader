@@ -8,7 +8,7 @@ import parser from './parser';
 // import locale from './locale';
 
 import {
-  renderErrors, renderFeed, renderPosts, renderForm,
+  renderErrors, renderFeed, renderPosts, renderForm, toggleForm,
 } from './view';
 
 export default (i18next) => {
@@ -41,19 +41,27 @@ export default (i18next) => {
     feedback: document.querySelector('.feedback'),
     feedsElement: document.querySelector('.feeds'),
     postsElement: document.querySelector('.posts'),
-    button: document.querySelector('.btn-primary'),
+    button: document.querySelector('[type="submit"]'),
   };
   // const form = document.querySelector('.rss-form');
   const watchedState = onChange(state, (path, value) => {
+    // console.log(path);
     if (path === 'feeds') {
       renderFeed(state, elements, i18next);
     } else if (path === 'posts') {
       renderPosts(state, elements, i18next);
     } else if (path === 'form.errors') {
       renderErrors(elements, value, i18next);
-    } if (state.form.processState === 'finished') {
-      if (state.form.valid === true && _.isEmpty(state.form.errors)) {
-        renderForm(state, elements, i18next);
+    } if (path === 'form.processState') {
+      if (state.form.processState === 'pending') {
+        console.log(state.form.processState);
+        toggleForm(elements, 'true');
+      } if (state.form.processState === 'finished') {
+        console.log(state.form.processState);
+        if (state.form.valid === true && _.isEmpty(state.form.errors)) {
+          toggleForm(elements, 'false');
+          renderForm(state, elements, i18next);
+        }
       }
     }
   });
@@ -79,6 +87,7 @@ export default (i18next) => {
       watchedState.feeds = [...state.feeds, marked.feed];
       watchedState.posts = [...state.posts, ...marked.items];
       watchedState.form.fields.feedsUrl.push(path);
+      watchedState.form.processState = 'pending';
     })
     .catch((error) => {
       if (error.isAxiosError) {
