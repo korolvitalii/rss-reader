@@ -81,6 +81,7 @@ export default (i18next) => {
       watchedState.form.fields.feedsUrl.push(path);
     })
     .catch((error) => {
+      error.message = 'Ошибка сети';
       watchedState.form.errors = { ...state.form.errors, url: error };
       watchedState.form.processState = 'failed';
     })
