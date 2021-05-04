@@ -5,7 +5,8 @@ import axios from 'axios';
 import validator from './validator.js';
 import config from './config.js';
 import parser from './parser';
-import locale from './locale';
+// import locale from './locale';
+
 import {
   renderErrors, renderFeed, renderPosts, renderForm,
 } from './view';
@@ -29,29 +30,30 @@ export default (i18next) => {
   };
 
   const updateValidationState = (watchedState) => {
-    const errors = validator(watchedState.feeds, watchedState.form.fields);
+    const errors = validator(watchedState.feeds, watchedState.form.fields, i18next);
     watchedState.form.valid = _.isEqual(errors, {});
     watchedState.form.errors = errors;
   };
 
   const elements = {
+    form: document.querySelector('.rss-form'),
     url: document.querySelector('.form-control.form-control-lg.w-100'),
     feedback: document.querySelector('.feedback'),
     feedsElement: document.querySelector('.feeds'),
     postsElement: document.querySelector('.posts'),
     button: document.querySelector('.btn-primary'),
   };
-  const form = document.querySelector('.rss-form');
+  // const form = document.querySelector('.rss-form');
   const watchedState = onChange(state, (path, value) => {
     if (path === 'feeds') {
-      renderFeed(state, elements);
+      renderFeed(state, elements, i18next);
     } else if (path === 'posts') {
-      renderPosts(state, elements);
+      renderPosts(state, elements, i18next);
     } else if (path === 'form.errors') {
-      renderErrors(elements, value);
+      renderErrors(elements, value, i18next);
     } if (state.form.processState === 'finished') {
       if (state.form.valid === true && _.isEmpty(state.form.errors)) {
-        renderForm(state, elements);
+        renderForm(state, elements, i18next);
       }
     }
   });
@@ -105,6 +107,9 @@ export default (i18next) => {
     }
   };
 
+  elements.form.addEventListener('submit', onSubmit);
+  elements.url.addEventListener('input', onChangeInput);
+
   const refreshFeeds = (path) => axios.get(`${config.proxy}${path}`)
     .then((response) => {
       if (_.isEmpty(response.data)) {
@@ -129,16 +134,16 @@ export default (i18next) => {
     });
   };
 
-  const init = () => {
-    i18next.init({
-      lng: 'ru',
-      debug: false,
-      resources: locale,
-    }, () => {
-      form.addEventListener('submit', onSubmit);
-      elements.url.addEventListener('input', onChangeInput);
-    });
-  };
-  init();
+  // const init = () => {
+  //   i18next.init({
+  //     lng: 'ru',
+  //     debug: false,
+  //     resources: locale,
+  //   }, () => {
+  //     form.addEventListener('submit', onSubmit);
+  //     elements.url.addEventListener('input', onChangeInput);
+  //   });
+  // };
+  // init();
   setTimeout(refreshPosts, 5000);
 };

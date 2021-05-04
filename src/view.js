@@ -1,4 +1,4 @@
-import i18next from 'i18next';
+// import i18next from 'i18next';
 import _ from 'lodash';
 
 const renderErrors = (elements, errors) => {
@@ -16,13 +16,13 @@ const renderErrors = (elements, errors) => {
   }
 };
 
-const renderForm = (state, elements) => {
+const renderForm = (state, elements, i18next) => {
   const { feedback } = elements;
   feedback.textContent = i18next.t('success');
   feedback.classList.add('text-success');
 };
 
-const renderFeed = (state, formElements) => {
+const renderFeed = (state, formElements, i18next) => {
   const { feedsElement } = formElements;
   feedsElement.innerHTML = '';
   formElements.url.value = '';
@@ -45,7 +45,7 @@ const renderFeed = (state, formElements) => {
   feedsElement.append(ul);
 };
 
-const renderPosts = (state, formElements) => {
+const renderPosts = (state, formElements, i18next) => {
   const { postsElement } = formElements;
   const { posts } = state;
   if (_.isEmpty(posts)) {
