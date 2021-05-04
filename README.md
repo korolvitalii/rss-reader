@@ -8,4 +8,4 @@ RSS Aggregator is a service to read and aggregate RSS feeds ([Wikipedia](https:/
 
 Feeds are updated every 5 seconds. 
 
-### [Try the service](frontend-project-lvl3-korolvitalii.vercel.app)
+### [Try the service](frontend-project-lvl3-rss-reader-v2.vercel.app)
