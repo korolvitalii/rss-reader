@@ -43,9 +43,7 @@ export default (i18next) => {
     postsElement: document.querySelector('.posts'),
     button: document.querySelector('[type="submit"]'),
   };
-  // const form = document.querySelector('.rss-form');
   const watchedState = onChange(state, (path, value) => {
-    // console.log(path);
     if (path === 'feeds') {
       renderFeed(state, elements, i18next);
     } else if (path === 'posts') {
@@ -54,10 +52,8 @@ export default (i18next) => {
       renderErrors(elements, value, i18next);
     } if (path === 'form.processState') {
       if (state.form.processState === 'pending') {
-        console.log(state.form.processState);
         toggleForm(elements, 'true');
       } if (state.form.processState === 'finished') {
-        console.log(state.form.processState);
         if (state.form.valid === true && _.isEmpty(state.form.errors)) {
           toggleForm(elements, 'false');
           renderForm(state, elements, i18next);
@@ -150,17 +146,5 @@ export default (i18next) => {
       setTimeout(refreshPosts, 5000);
     });
   };
-
-  // const init = () => {
-  //   i18next.init({
-  //     lng: 'ru',
-  //     debug: false,
-  //     resources: locale,
-  //   }, () => {
-  //     form.addEventListener('submit', onSubmit);
-  //     elements.url.addEventListener('input', onChangeInput);
-  //   });
-  // };
-  // init();
   setTimeout(refreshPosts, 5000);
 };

@@ -3,8 +3,6 @@ import _ from 'lodash';
 
 const toggleForm = (elements, status) => {
   const { url, button } = elements;
-  console.log('work!!!!');
-  console.loG(status);
   if (status) {
     button.disabled = status;
     url.setAttribute('readonly', status);
