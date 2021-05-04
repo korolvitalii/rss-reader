@@ -52,11 +52,11 @@ export default (i18next) => {
       renderErrors(elements, value, i18next);
     } if (path === 'form.processState') {
       if (state.form.processState === 'pending') {
-        toggleForm(elements, 'true');
+        toggleForm(elements, true);
       } if (state.form.processState === 'finished') {
         if (state.form.valid === true && _.isEmpty(state.form.errors)) {
-          toggleForm(elements, 'false');
           renderForm(state, elements, i18next);
+          toggleForm(elements, false);
         }
       }
     }

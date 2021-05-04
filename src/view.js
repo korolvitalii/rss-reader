@@ -3,14 +3,14 @@ import _ from 'lodash';
 
 const toggleForm = (elements, status) => {
   const { url, button } = elements;
-  if (status === 'true') {
-    button.disabled = true;
-    url.setAttribute('readonly', true);
+  if (status) {
+    console.log(status);
+    button.disabled = status;
+    url.setAttribute('readonly', status);
   } else {
-    button.disabled = false;
+    button.disabled = status;
     url.removeAttribute('readonly');
   }
-  console.log(url);
 };
 
 const renderErrors = (elements, errors) => {
