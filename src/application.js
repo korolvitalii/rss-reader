@@ -57,6 +57,8 @@ export default (i18next) => {
         if (state.form.valid === true && _.isEmpty(state.form.errors)) {
           renderForm(state, elements, i18next);
           toggleForm(elements, 'false');
+        } else {
+          toggleForm(elements, 'false');
         }
       }
     }
@@ -83,7 +85,6 @@ export default (i18next) => {
       watchedState.feeds = [...state.feeds, marked.feed];
       watchedState.posts = [...state.posts, ...marked.items];
       watchedState.form.fields.feedsUrl.push(path);
-      watchedState.form.processState = 'pending';
     })
     .catch((error) => {
       if (error.isAxiosError) {
@@ -91,7 +92,6 @@ export default (i18next) => {
         watchedState.form.errors = { ...state.form.errors, url: error };
         watchedState.form.processState = 'failed';
       } else {
-        console.log(error);
         error.message = i18next.t('urlNotRss');
         watchedState.form.errors = { ...state.form.errors, url: error };
         watchedState.form.processState = 'failed';
@@ -113,7 +113,7 @@ export default (i18next) => {
     }
     try {
       loadFeed(watchedState.form.fields.url);
-      watchedState.form.processState = 'sending';
+      watchedState.form.processState = 'pending';
     } catch (err) {
       watchedState.form.errors = { ...state.form.errors, ...err };
       watchedState.form.processState = 'failed';

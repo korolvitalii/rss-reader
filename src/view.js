@@ -5,7 +5,7 @@ const toggleForm = (elements, status) => {
   const { url, button } = elements;
   if (status === 'true') {
     button.disabled = true;
-    url.setAttribute('readonly', status);
+    url.setAttribute('readonly', true);
   }
   if (status === 'false') {
     button.disabled = false;
