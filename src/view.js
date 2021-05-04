@@ -79,6 +79,7 @@ const renderPosts = (state, formElements, i18next) => {
       header: document.querySelector('.modal-header'),
       body: document.querySelector('.modal-body'),
       a: document.querySelector('.btn.btn-primary.full-article'),
+      modaldialog: document.querySelector('.modal-dialog'),
     };
     const button = document.createElement('button');
     li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start');
@@ -106,6 +107,7 @@ const renderPosts = (state, formElements, i18next) => {
       modalElements.body.innerHTML = description;
       modalElements.a.innerHTML = 'Читать полностью';
       modalElements.a.href = link;
+      modalElements.a.setAttribute('role', 'button');
     });
     li.append(a);
     li.append(button);
