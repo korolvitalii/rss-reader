@@ -100,8 +100,8 @@ const renderPosts = (state, formElements, i18next) => {
     } else {
       a.classList.add('font-weight-bold');
     }
-    button.addEventListener('click', () => {
-      // e.preventDefault();
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
       state.uiState.viewPosts.push(link);
       modalElements.header.innerHTML = title;
       modalElements.body.innerHTML = description;
