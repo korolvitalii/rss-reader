@@ -21,7 +21,7 @@ afterEach(async () => {
   jest.clearAllMocks();
 });
 
-test('init ', async () => {
+test('init', async () => {
   expect(document.body.outerHTML).toMatchSnapshot();
 });
 
@@ -31,12 +31,3 @@ test('invalid rss', async () => {
   await waitFor(() => expect(screen.getByText('Ссылка должна быть валидным URL')));
   expect(document.body.outerHTML).toMatchSnapshot();
 });
-
-// test('add rss', async () => {
-//   const rss = await readFixture('breaking_news.rss');
-//   mockAxios.get.mockImplementationOnce(() => Promise.resolve({ data: rss }));
-//   fireEvent.input(screen.getByTestId('rss-field'), { target: { value: 'https://ru.hexlet.io/lessons.rss' } });
-//   fireEvent.submit(screen.getByTestId('rss-form'));
-//   await waitFor(() => expect(screen.getByText('Feeds')));
-//   expect(document.body.outerHTML).toMatchSnapshot();
-// });

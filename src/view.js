@@ -127,4 +127,3 @@ const renderPosts = (state, formElements, i18next) => {
 export {
   renderFeed, renderPosts, renderErrors, renderForm, toggleForm,
 };
-// class="btn btn-primary btn-sm"

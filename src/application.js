@@ -135,8 +135,8 @@ export default (i18next) => {
       return diff;
     })
     .catch((e) => {
-      console.log(e);
-      return [];
+      watchedState.form.errors = { ...state.form.errors, ...e };
+      watchedState.form.processState = 'failed';
     });
   const refreshPosts = () => {
     const promise = state.feeds.map((feed) => refreshFeeds(feed.id));
