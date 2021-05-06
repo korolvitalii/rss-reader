@@ -102,6 +102,13 @@ const renderPosts = (state, formElements, i18next) => {
     }
     button.addEventListener('click', (e) => {
       e.preventDefault();
+      const modal = document.querySelector('#modal');
+
+      modal.classList.add('show');
+      modal.style.display = 'block';
+      modal.removeAttribute('aria-hidden');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('role', 'dialog');
       state.uiState.viewPosts.push(link);
       modalElements.header.innerHTML = title;
       modalElements.body.innerHTML = description;
@@ -120,3 +127,4 @@ const renderPosts = (state, formElements, i18next) => {
 export {
   renderFeed, renderPosts, renderErrors, renderForm, toggleForm,
 };
+// class="btn btn-primary btn-sm"
