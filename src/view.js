@@ -103,12 +103,12 @@ const renderPosts = (state, formElements, i18next) => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       const modal = document.querySelector('#modal');
-
       modal.classList.add('show');
       modal.style.display = 'block';
       modal.removeAttribute('aria-hidden');
       modal.setAttribute('aria-modal', 'true');
       modal.setAttribute('role', 'dialog');
+      a.classList.add('font-weight-normal');
       state.uiState.viewPosts.push(link);
       modalElements.header.innerHTML = title;
       modalElements.body.innerHTML = description;
