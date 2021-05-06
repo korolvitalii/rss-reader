@@ -93,7 +93,7 @@ const renderPosts = (state, formElements, i18next) => {
     button.setAttribute('data-id', `${index}`);
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#modal');
-    button.textContent = 'Просморт';
+    button.textContent = 'Просмотр';
     if (isViewedPost) {
       a.classList.remove('font-weight-bold');
       a.classList.add('font-weight-normal');
