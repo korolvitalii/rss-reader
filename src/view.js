@@ -108,13 +108,13 @@ const renderPosts = (state, formElements, i18next) => {
       modal.removeAttribute('aria-hidden');
       modal.setAttribute('aria-modal', 'true');
       modal.setAttribute('role', 'dialog');
-      a.classList.add('font-weight-normal');
       state.uiState.viewPosts.push(link);
       modalElements.header.innerHTML = title;
       modalElements.body.innerHTML = description;
       modalElements.a.innerHTML = 'Читать полностью';
       modalElements.a.href = link;
       modalElements.a.setAttribute('role', 'button');
+      renderPosts(state, formElements, i18next);
     });
     li.append(a);
     li.append(button);
