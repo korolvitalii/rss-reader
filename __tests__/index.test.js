@@ -12,7 +12,6 @@ const readFixture = async (fixtureName) => {
 beforeEach(async () => {
   const initHtml = await readFixture('index.html');
   document.body.innerHTML = initHtml;
-  jest.useFakeTimers();
   appication();
 });
 
