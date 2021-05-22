@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import * as yup from 'yup';
-// import i18next from 'i18next';
 
 export default (feeds, fields, i18next) => {
   const schema = yup.object().shape({

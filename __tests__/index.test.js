@@ -1,4 +1,4 @@
-// import mockAxios from 'axios';
+import mockAxios from 'axios';
 // import adapter from 'axios/lib/adapters/http';
 import path from 'path';
 import { promises as fs } from 'fs';
@@ -11,18 +11,10 @@ import init from '../src/init.js';
 
 nock.disableNetConnect();
 
-// axios.defaults.adapter = adapter;
-
 const readFixture = async (fixtureName) => {
   const data = await fs.readFile(path.join(__dirname, '__fixtures__', fixtureName), 'utf-8');
   return data;
 };
-
-// beforeEach(async () => {
-//   const html = await readFixture('index.html');
-//   document.body.innerHTML = html;
-//   await init();
-// });
 
 beforeEach(async () => {
   const initHtml = await readFixture('index.html');
@@ -54,14 +46,14 @@ test('invalid rss 2', async () => {
   expect(document.body.innerHTML).toMatchSnapshot();
 });
 
-// test('add rss', async () => {
-//   const rss = await readFixture('breaking_news.rss');
-//   mockAxios.get.mockImplementationOnce(() => Promise.resolve({ data: rss }));
-//   fireEvent.input(screen.getByTestId('rss-field'), { target: { value: 'https://valid.url.com/news.rss' } });
-//   fireEvent.submit(screen.getByTestId('rss-form'));
-//   await waitFor(() => expect(screen.getByText('Feeds')));
-//   expect(document.body.outerHTML).toMatchSnapshot();
-// });
+test('add rss', async () => {
+  const rss = await readFixture('breaking_news.rss');
+  mockAxios.get.mockImplementationOnce(() => Promise.resolve({ data: rss }));
+  fireEvent.input(screen.getByTestId('rss-field'), { target: { value: 'https://valid.url.com/news.rss' } });
+  fireEvent.submit(screen.getByTestId('rss-form'));
+  await waitFor(() => expect(screen.getByText('Feeds')));
+  expect(document.body.outerHTML).toMatchSnapshot();
+});
 
 // test('try to add the same rss feed twice', async () => {
 //   const rss = await readFixture('breaking_news.rss');
