@@ -1,4 +1,4 @@
-// import mockAxios from 'axios';
+import mockAxios from 'axios';
 // import adapter from 'axios/lib/adapters/http';
 import path from 'path';
 import { promises as fs } from 'fs';
@@ -7,7 +7,7 @@ import { fireEvent } from '@testing-library/dom/dist/events.js';
 import { waitFor } from '@testing-library/dom/dist/wait-for.js';
 import nock from 'nock';
 import '@testing-library/jest-dom';
-import init from '../src/init.js';
+import init from '../src/init';
 
 nock.disableNetConnect();
 

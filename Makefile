@@ -5,4 +5,4 @@ lint:
 test:
 		npx jest
 coverage:
-	npx jest --coverage
+	    npx jest --coverage
