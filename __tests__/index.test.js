@@ -1,5 +1,5 @@
-import mockAxios from 'axios';
-import adapter from 'axios/lib/adapters/http';
+// import mockAxios from 'axios';
+// import adapter from 'axios/lib/adapters/http';
 import path from 'path';
 import { promises as fs } from 'fs';
 import { screen } from '@testing-library/dom/dist/screen.js';
