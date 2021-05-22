@@ -1,11 +1,9 @@
 import onChange from 'on-change';
 import _ from 'lodash';
 import axios from 'axios';
-// import i18next from 'i18next';
 import validator from './validator.js';
 import config from './config.js';
 import parser from './parser';
-// import locale from './locale';
 
 import {
   renderErrors, renderFeed, renderPosts, renderForm, toggleForm,

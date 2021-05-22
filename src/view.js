@@ -1,4 +1,3 @@
-// import i18next from 'i18next';
 import _ from 'lodash';
 
 const toggleForm = (elements, status) => {
@@ -93,7 +92,7 @@ const renderPosts = (state, formElements, i18next) => {
     button.setAttribute('data-id', `${index}`);
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#modal');
-    button.textContent = 'Просмотр';
+    button.textContent = 'View';
     if (isViewedPost) {
       a.classList.remove('font-weight-bold');
       a.classList.add('font-weight-normal');

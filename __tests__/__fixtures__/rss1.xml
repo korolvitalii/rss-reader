@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Test RSS 1</title>
+    <description>Test desc 1</description>
+    <item>
+      <title>Woohoo</title>
+      <description>1111</description>
+      <link>https://google.com</link>
+    </item>
+    <item>
+      <title>Hey</title>
+      <description>2222</description>
+      <link>https://example.com</link>
+    </item>
+    <item>
+      <title>LOL</title>
+      <description>Super description</description>
+      <link>https://yahoo.com</link>
+    </item>
+  </channel>
+</rss>
