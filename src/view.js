@@ -110,7 +110,7 @@ const renderPosts = (state, formElements, i18next) => {
       state.uiState.viewPosts.push(link);
       modalElements.header.innerHTML = title;
       modalElements.body.innerHTML = description;
-      modalElements.a.innerHTML = 'Читать полностью';
+      modalElements.a.innerHTML = 'Read';
       modalElements.a.href = link;
       modalElements.a.setAttribute('role', 'button');
       renderPosts(state, formElements, i18next);
