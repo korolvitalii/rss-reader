@@ -92,7 +92,7 @@ const renderPosts = (state, formElements, i18next) => {
     button.setAttribute('data-id', `${index}`);
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#modal');
-    button.textContent = 'View';
+    button.textContent = 'Посмотреть';
     if (isViewedPost) {
       a.classList.remove('font-weight-bold');
       a.classList.add('font-weight-normal');
@@ -110,7 +110,7 @@ const renderPosts = (state, formElements, i18next) => {
       state.uiState.viewPosts.push(link);
       modalElements.header.innerHTML = title;
       modalElements.body.innerHTML = description;
-      modalElements.a.innerHTML = 'Read';
+      modalElements.a.innerHTML = 'Читать полностью';
       modalElements.a.href = link;
       modalElements.a.setAttribute('role', 'button');
       renderPosts(state, formElements, i18next);
