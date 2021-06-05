@@ -35,14 +35,14 @@ test('init', () => {
 test('invalid rss 1', async () => {
   fireEvent.input(screen.getByTestId('rss-field'), { target: { value: 'lalalalala' } });
   fireEvent.submit(screen.getByTestId('rss-form'));
-  await waitFor(() => expect(screen.getByText('url must be a valid URL')));
+  await waitFor(() => expect(screen.getByText('Ссылка должна быть валидным URL')));
   expect(document.body.innerHTML).toMatchSnapshot();
 });
 
 test('invalid rss 2', async () => {
   fireEvent.input(screen.getByTestId('rss-field'), { target: { value: 'aaaaaaaaa' } });
   fireEvent.submit(screen.getByTestId('rss-form'));
-  await waitFor(() => expect(screen.getByText('url must be a valid URL')));
+  await waitFor(() => expect(screen.getByText('Ссылка должна быть валидным URL')));
   expect(document.body.innerHTML).toMatchSnapshot();
 });
 
