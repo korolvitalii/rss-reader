@@ -78,7 +78,7 @@ exports[`invalid rss 1 1`] = `
                </div>
             </form>
             <p class=\\"text-muted my-1\\">Example: https://www.theguardian.com/international/rss/p&gt;
-            </p><div class=\\"feedback text-danger\\">Ссылка должна быть валидным URL</div>
+            </p><div class=\\"feedback text-danger\\">url must be a valid URL</div>
          </div>
       </div>
    </section>
@@ -125,7 +125,7 @@ exports[`invalid rss 2 1`] = `
                </div>
             </form>
             <p class=\\"text-muted my-1\\">Example: https://www.theguardian.com/international/rss/p&gt;
-            </p><div class=\\"feedback text-danger\\">Ссылка должна быть валидным URL</div>
+            </p><div class=\\"feedback text-danger\\">url must be a valid URL</div>
          </div>
       </div>
    </section>

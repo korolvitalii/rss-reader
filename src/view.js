@@ -79,8 +79,11 @@ const renderPosts = (state, formElements, i18next) => {
       body: document.querySelector('.modal-body'),
       a: document.querySelector('.btn.btn-primary.full-article'),
       modaldialog: document.querySelector('.modal-dialog'),
+      modalClose: document.querySelector('.btn.btn-secondary'),
     };
+    modalElements.modalClose.textContent = 'Close';
     const button = document.createElement('button');
+    console.log(modalElements.body);
     li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start');
     a.setAttribute('href', `${link}`);
     a.setAttribute('data-id', `${index}`);
@@ -92,7 +95,7 @@ const renderPosts = (state, formElements, i18next) => {
     button.setAttribute('data-id', `${index}`);
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#modal');
-    button.textContent = 'Посмотреть';
+    button.textContent = 'Preview';
     if (isViewedPost) {
       a.classList.remove('font-weight-bold');
       a.classList.add('font-weight-normal');
@@ -110,7 +113,7 @@ const renderPosts = (state, formElements, i18next) => {
       state.uiState.viewPosts.push(link);
       modalElements.header.innerHTML = title;
       modalElements.body.innerHTML = description;
-      modalElements.a.innerHTML = 'Читать полностью';
+      modalElements.a.innerHTML = 'Read';
       modalElements.a.href = link;
       modalElements.a.setAttribute('role', 'button');
       renderPosts(state, formElements, i18next);
